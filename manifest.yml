@@ -2,9 +2,9 @@ applications:
   - path: .
     name: peixiongau-2048
     environment_json: {}
-    memory: 256M
+    memory: 128M
     instances: 1
-    disk_quota: 256M
+    disk_quota: 1024M
     services: [] 
 
     
