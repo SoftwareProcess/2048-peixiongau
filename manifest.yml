@@ -4,7 +4,7 @@ applications:
     environment_json: {}
     memory: 128M
     instances: 1
-    disk_quota: 128M
+    disk_quota: 256M
     services: [] 
 
     
