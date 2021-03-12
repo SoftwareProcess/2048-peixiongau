@@ -8,7 +8,7 @@ def _create(userParms):
     result = {}
     result["grid"] = _generateGrid()
     result["score"] = 0
-    result['integrity'] = _generateIntegrity(result[grid], 0)
+    result['integrity'] = _generateIntegrity(result['grid'], 0)
     result['status'] = 'ok'
     
     
