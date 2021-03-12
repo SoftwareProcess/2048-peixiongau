@@ -6,10 +6,10 @@ from pip._vendor.six import int2byte
 def _create(userParms):
     #result = {'create': 'create stub'}
     result = {}
-    result["grid"] = 0
+    result["grid"] = _generateGrid()
     result["score"] = 0
-    result["integrity"] = 0
-    result["status"] = 0
+    result['integrity'] = _generateIntegrity(result[grid], 0)
+    result['status'] = 'ok'
     
     
     return result
