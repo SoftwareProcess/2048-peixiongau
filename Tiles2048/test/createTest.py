@@ -20,4 +20,4 @@ class CreateTest(unittest.TestCase):
     #002
     def test005_010(self):
         actual = create._generateGrid()
-        self.assertNotNone(actual)
+        self.assertIsNotNone(actual)
