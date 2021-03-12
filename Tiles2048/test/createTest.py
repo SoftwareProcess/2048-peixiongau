@@ -10,7 +10,7 @@ class CreateTest(unittest.TestCase):
         actualResult = create._create(userParms)
         self.assertIsNotNone(actualResult)
         
-    def test001_010:
+    def test001_010(self):
         userParms = {'op': 'create', 'size': '4'}
         expect = {"grid":0, "score", 0, "integrity", 0, "status", 0}
         actual = create._create(userParms)
