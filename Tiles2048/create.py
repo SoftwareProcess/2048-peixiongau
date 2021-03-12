@@ -33,5 +33,5 @@ def _generateIntegrity(grid, score):
     hasher = hashlib.sha256(bytes(grid, 'utf-8'))
     hasher.update(b'.')
     hasher.update(int2byte(score))
-    return hasher.digest()
+    return hasher.hexdigest()
             
