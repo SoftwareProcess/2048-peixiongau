@@ -10,8 +10,9 @@ class CreateTest(unittest.TestCase):
         actualResult = create._create(userParms)
         self.assertIsNotNone(actualResult)
         
+    #001
     def test001_010(self):
-        userParms = {'op': 'create', 'size': '4'}
+        userParms = {'op': 'create'}
         expect = {"grid":0, "score":0, "integrity": 0, "status": 0}
         actual = create._create(userParms)
         self.assertDictEqual(expect, actual)

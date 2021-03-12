@@ -1,10 +1,10 @@
 applications:
   - path: .
-    name: umphrda-2048
+    name: peixiongau-2048
     environment_json: {}
     memory: 128M
     instances: 1
-    disk_quota: 1024M
+    disk_quota: 128M
     services: [] 
 
     
