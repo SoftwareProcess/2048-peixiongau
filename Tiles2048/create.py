@@ -1,6 +1,7 @@
 from matplotlib.pyplot import grid
 #from Tools.scripts.patchcheck import status
 from random import random
+import hashlib
 def _create(userParms):
     #result = {'create': 'create stub'}
     result = {}
