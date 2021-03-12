@@ -2,6 +2,7 @@ from matplotlib.pyplot import grid
 #from Tools.scripts.patchcheck import status
 from random import random
 import hashlib
+from pip._vendor.six import int2byte
 def _create(userParms):
     #result = {'create': 'create stub'}
     result = {}
