@@ -22,5 +22,5 @@ def _generateGrid():
             left -= 1
         else:
             result += '0'
-    return '0000000000000000'
+    return result
             
