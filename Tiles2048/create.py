@@ -14,4 +14,4 @@ def _create(userParms):
 
 
 def _generateGrid():
-    int 
+    return 0
