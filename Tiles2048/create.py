@@ -1,4 +1,3 @@
-from matplotlib.pyplot import grid
 #from Tools.scripts.patchcheck import status
 from random import random
 import hashlib
