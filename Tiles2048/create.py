@@ -17,6 +17,9 @@ def _generateGrid():
     left = 2
     result = ''
     for i in range(16):
+        if left == 0:
+            result += '0'
+            continue
         if random() < 0.3:
             result += '2'
             left -= 1
