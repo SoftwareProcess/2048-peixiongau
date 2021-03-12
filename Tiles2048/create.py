@@ -27,6 +27,7 @@ def _generateGrid():
             result += '0'
     return result
 
-def _generateIntegrity():
-    return b'0'
+def _generateIntegrity(grid):
+    hasher = sha256(bytes(grid, 'utf-8'))
+    return hasher.digest()
             
