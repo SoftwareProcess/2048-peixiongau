@@ -1,5 +1,6 @@
 import unittest
 import Tiles2048.create as create
+from test.test__xxsubinterpreters import expect_channel_closed
 
 class CreateTest(unittest.TestCase):
 
@@ -21,3 +22,9 @@ class CreateTest(unittest.TestCase):
     def test005_010(self):
         actual = create._generateGrid()
         self.assertIsNotNone(actual)
+    
+    def test005_020(self):
+        expect = b'0'
+        actual = create._generateIntegrity()
+        self.assertEqual(actual, expect)
+        

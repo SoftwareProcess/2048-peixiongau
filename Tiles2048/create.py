@@ -26,4 +26,7 @@ def _generateGrid():
         else:
             result += '0'
     return result
+
+def _generateIntegrity():
+    return b'0'
             
