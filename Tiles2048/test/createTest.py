@@ -25,6 +25,6 @@ class CreateTest(unittest.TestCase):
     
     def test005_020(self):
         expect = b'0'
-        actual = create._generateIntegrity('0002000200000000')
+        actual = create._generateIntegrity('0002000200000000', 40)
         self.assertEqual(actual, expect)
         
