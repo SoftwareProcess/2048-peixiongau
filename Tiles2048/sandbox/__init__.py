@@ -5,6 +5,7 @@ hasher = hashlib.sha256(b'test')
 ##hasher.update(b"test")
 
 a = '1'
+int2byte(2)
 print(bytes(a, 'utf-8'))
 
 
