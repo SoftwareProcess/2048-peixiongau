@@ -33,6 +33,6 @@ def _generateGrid():
 def _generateIntegrity(grid, score):
     hasher = hashlib.sha256(bytes(grid, 'utf-8'))
     hasher.update(b'.')
-    hasher.update(int2byte(score))
+    hasher.update(bytes(str(score), 'utf-8'))
     return hasher.hexdigest()
             
