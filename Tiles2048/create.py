@@ -1,4 +1,4 @@
-from matplotlib.pyplot import grid
+
 #from Tools.scripts.patchcheck import status
 from random import random
 import hashlib
@@ -24,7 +24,7 @@ def _generateGrid():
         if left == 0:
             result += '0'
             continue
-        if random() < 0.3:
+        if random() < 0.6:
             result += '2'
             left -= 1
         else:
