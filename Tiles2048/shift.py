@@ -5,7 +5,7 @@ import hashlib;
 
 DIRECTION = ('up', 'down', 'left', 'right')
 VALID_NUMS = ('0', '2', '4', '8', '16', '32', '64', '128', '256', '512', '1024')
-grid_parsed = []
+global grid_parsed
 
 
 # Finish the shift operation
