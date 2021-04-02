@@ -41,7 +41,7 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     grid = userParms["grid"]
-    msg = _check_grid(grid)
+    msg = _check_grid(userParms["grid"])
     if "passed" not in msg:
         result["status"] = msg
         return result
