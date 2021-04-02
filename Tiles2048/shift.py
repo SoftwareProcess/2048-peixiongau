@@ -146,8 +146,76 @@ def _check_direction(direction):
     
     
 
-def _operate(grid, direction):
+def _operate(direction):
+    grid = _parse_grid()
+    
+    results = []
+    # Calculation
+    for sequence in grid:
+        num = 0
+        result = []
+        for x in sequence:
+            if x == 0:
+                continue
+            
+            if num == 0:
+                num = x
+                continue
+            
+            if num == x:
+                result.append(num * 2)
+                num = 0
+        
+        results.append(result)
+    
+    # Putting results back to grid
+    if direction == 'right' or direction == 'down':
+        for i in range(3):
+            for j in range(2):
+                if j > len(results[i])
+                    continue
+                grid[i][3-j] = results[i][j]
+    else:
+        for i in range(3):
+            for j in range(2):
+                if j > len(results[i])
+                    continue
+                grid[i][j] = results[i][j]
+    
+    _update_grid(grid, direction)
     return 0
+
+def _parse_grid(direction):
+    grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
+    if direction == 'up' or direction == 'down':
+        # rows and columns
+        i = 0
+        j = 0
+        for i in range(4):
+            for j in range(4):
+                grid[j][i] = int(grid_parsed[i + j * 4])
+    else:
+        for i in range(4):
+            for j in range(4):
+                grid[i][j] = int(grid_parsed[i * 4 + j])
+    
+    return grid
+
+def _update_grid(grid, direction):
+    if direction == 'up' or direction == 'down':
+        # rows and columns
+        i = 0
+        j = 0
+        for i in range(4):
+            for j in range(4):
+                int(grid_parsed[i + j * 4]) = grid[j][i]
+    else:
+        for i in range(4):
+            for j in range(4):
+                int(grid_parsed[i * 4 + j]) = grid[i][j]
+    
+    return grid_parsed
+
 
 def _gen_tiles(grid):
     return 0

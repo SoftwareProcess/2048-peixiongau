@@ -66,6 +66,14 @@ class Test(unittest.TestCase):
         expected = 'error: invalid score'
         actual = shift._check_score(parms['score'])
         self.assertEqual(actual, expected)
+     def test500_005_operatings(self):
+        grid = '0022002200220022'
+        dir = 'right'
+        expected = "0004000400040004"
+        shift._check_grid(grid)
+        actual = shift._operate(dir)
+        self.assertEqual(actual, expected)   
+    
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
