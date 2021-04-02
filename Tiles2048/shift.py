@@ -208,7 +208,7 @@ def _parse_grid(gridIn, direction):
     return grid
 
 def _update_grid(grid_calced, direction):
-    grid_original= [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    grid_original= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     print(grid_calced)
     if direction == 'up' or direction == 'down':
         # rows and columns
