@@ -35,8 +35,8 @@ def _shift(userParms):
 def _check_parms(userParms):
     result = {}
     
-    msg = _check_missing(usrParms)
-    if "passed" not in msg
+    msg = _check_missing(userParms)
+    if "passed" not in msg:
         result["status"] = msg
         return result
     grid = userParms["grid"]
