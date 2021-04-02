@@ -20,8 +20,10 @@ def _shift(userParms):
     grid = userParms["grid"]
     direction = userParms["direction"]
     score = userParms["score"]
+    
+    grid_parsed = _check_grid(grid)[1]
     # Operate the data
-    grid = _operate(grid, direction)
+    grid = _operate(grid_parsed, direction)
     # Generate one numbers after operation(and get the score)
     score = _gen_tiles(grid)
     
@@ -43,7 +45,7 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     grid = userParms["grid"]
-    (msg, grid) = _check_grid(grid)
+    (msg, x) = _check_grid(grid)
     if "passed" not in msg:
         result["status"] = msg
         return result
@@ -145,7 +147,7 @@ def _check_direction(direction):
     
     
     
-
+# make the operation and return the new grid
 def _operate(gridIn, direction):
     grid = _parse_grid(gridIn, direction)
     
@@ -183,11 +185,11 @@ def _operate(gridIn, direction):
                 grid[i][j] = results[i][j]
     
     _update_grid(grid, direction)
-    return 0
+    return grid
 
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
-    print(grid_parsed)
+    print(gridIn)
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
@@ -202,22 +204,22 @@ def _parse_grid(gridIn, direction):
     
     return grid
 
-def _update_grid(gridNew, gridOld, direction):
+def _update_grid(grid_calced, grid_original, direction):
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
         j = 0
         for i in range(4):
             for j in range(4):
-                gridOld[i + j * 4] = str(gridNew[j][i])
+                grid_original[i + j * 4] = str(grid_calced[j][i])
     else:
         for i in range(4):
             for j in range(4):
-                gridOld[i * 4 + j] = str(gridNew[i][j])
+                grid_original[i * 4 + j] = str(grid_calced[i][j])
     
-    if '2048' in gridNew:
+    if '2048' in grid_original:
         print("you win!")       #modiify later
-    return grid_parsed
+    return grid_original
 
 
 def _gen_tiles(grid):
