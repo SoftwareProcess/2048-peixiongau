@@ -25,7 +25,7 @@ def _shift(userParms):
     return result
 
 def _check_parms(userParms):
-    result = {"status": "stub"}
+    result = {"status": "error: invalid direction"}
     return result
 
 def _operate(grid, direction):
