@@ -46,7 +46,7 @@ class Test(unittest.TestCase):
     
     def test_500_001_check_missing(self):
         parms = {"grid": '000000'}
-        expected = {"status": "error: missing score"}
+        expected = "error: missing score"
         actual = shift._check_missing(parms)
         self.assertEqual(actual, expected)
 if __name__ == "__main__":
