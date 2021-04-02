@@ -70,10 +70,11 @@ def _check_missing(userParms):
         return "error: missing grid"
     if "score" not in userParms:
         return "error: missing score";
-    if "integrity" not in userParms:
-        return "error: missing integrity";
     if "direction" not in userParms:
         return "error: missing direction";
+    if "integrity" not in userParms:
+        return "error: missing integrity";
+    
     return "passed"
     
 def _check_grid(grid):
