@@ -208,12 +208,14 @@ def _update_grid(grid, direction):
         j = 0
         for i in range(4):
             for j in range(4):
-                int(grid_parsed[i + j * 4]) = grid[j][i]
+                grid_parsed[i + j * 4] = str(grid[j][i])
     else:
         for i in range(4):
             for j in range(4):
-                int(grid_parsed[i * 4 + j]) = grid[i][j]
+                grid_parsed[i * 4 + j] = str(grid[i][j])
     
+    if '2048' in grid_parsed:
+        print("you win!")       #modiify later
     return grid_parsed
 
 
