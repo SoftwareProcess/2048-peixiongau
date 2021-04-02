@@ -79,6 +79,7 @@ def _check_missing(userParms):
     return "passed"
     
 def _check_grid(grid):
+    grid_parsed = [];
     accum = '';
     temp = ''
     count = 0
