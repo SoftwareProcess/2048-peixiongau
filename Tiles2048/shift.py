@@ -184,8 +184,11 @@ def _operate(gridIn, direction):
                     continue
                 grid[i][j] = results[i][j]
     
-    _update_grid(grid, direction)
-    return grid
+    grid = _update_grid(grid, direction)
+    result = ''
+    for num in grid:
+        result += str(num)
+    return result
 
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
