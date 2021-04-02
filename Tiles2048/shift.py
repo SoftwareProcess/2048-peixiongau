@@ -146,8 +146,8 @@ def _check_direction(direction):
     
     
 
-def _operate(direction):
-    grid = _parse_grid(direction)
+def _operate(gridIn, direction):
+    grid = _parse_grid(gridIn, direction)
     
     results = []
     # Calculation
@@ -185,7 +185,7 @@ def _operate(direction):
     _update_grid(grid, direction)
     return 0
 
-def _parse_grid(direction):
+def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
     print(grid_parsed)
     if direction == 'up' or direction == 'down':
@@ -194,28 +194,28 @@ def _parse_grid(direction):
         j = 0
         for i in range(4):
             for j in range(4):
-                grid[j][i] = int(grid_parsed[i + j * 4])
+                grid[j][i] = int(gridIn[i + j * 4])
     else:
         for i in range(4):
             for j in range(4):
-                grid[i][j] = int(grid_parsed[i * 4 + j])
+                grid[i][j] = int(gridIn[i * 4 + j])
     
     return grid
 
-def _update_grid(grid, direction):
+def _update_grid(gridNew, gridOld, direction):
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
         j = 0
         for i in range(4):
             for j in range(4):
-                grid_parsed[i + j * 4] = str(grid[j][i])
+                gridOld[i + j * 4] = str(gridNew[j][i])
     else:
         for i in range(4):
             for j in range(4):
-                grid_parsed[i * 4 + j] = str(grid[i][j])
+                gridOld[i * 4 + j] = str(gridNew[i][j])
     
-    if '2048' in grid_parsed:
+    if '2048' in gridNew:
         print("you win!")       #modiify later
     return grid_parsed
 
