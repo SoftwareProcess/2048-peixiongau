@@ -220,6 +220,7 @@ def _update_grid(grid_calced, direction):
     else:
         for i in range(4):
             for j in range(4):
+                print("i", i, "j", j)
                 grid_original[i * 4 + j] = str(grid_calced[i][j])
     
     if '2048' in grid_original:
