@@ -3,7 +3,7 @@
 
 
 valid_nums = ('0', '2', '4', '8', '16', '32', '64', '128', '256', '512', '1024')
-
+grid_parsed = []
 
 
 # Finish the shift operation
@@ -32,6 +32,7 @@ def _shift(userParms):
     
     return result
 
+# parse parameters
 def _check_parms(userParms):
     result = {}
     
@@ -96,12 +97,16 @@ def _check_grid(grid):
                 return msg
         
         if accum in valid_nums:
+            grid_parsed.append(accum)
             count += 1
             accum = ''
             temp = ''
     
     if count != 16:
         return "error: invalid grid"
+    
+    if '0' not in grid_parsed:
+        return "error: no shift possible"
     
     return "passed"
 

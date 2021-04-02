@@ -49,6 +49,13 @@ class Test(unittest.TestCase):
         expected = "error: missing score"
         actual = shift._check_missing(parms)
         self.assertEqual(actual, expected)
+    
+    def test500_002_check_grid(self):
+        parms = {"grid": "16161616222244448888", "score":0, "direction":"abc", "integrity": "00000"}
+        expected = 'error: no shift possible'
+        actual = shift._check_grid(parms)
+        self.assertEqual(actual, expected)
+    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
