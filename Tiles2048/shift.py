@@ -83,14 +83,15 @@ def _check_grid(grid):
     temp = ''
     count = 0
     for num in grid:
-        for x in grid:
+        temp = accum + num
+        for x in valid_nums:
             if accum == '0':
                 break;
             
-            temp = accum + num
+            
             if temp in x:
                 accum = temp
-                continue
+                break
             
             if x == '1024':
                 msg = "error: invalid grid"
