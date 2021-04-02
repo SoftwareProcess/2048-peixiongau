@@ -147,7 +147,7 @@ def _check_direction(direction):
     
 
 def _operate(direction):
-    grid = _parse_grid()
+    grid = _parse_grid(direction)
     
     results = []
     # Calculation
