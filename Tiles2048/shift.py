@@ -95,7 +95,7 @@ def _check_grid(grid):
             
             if x == '1024':
                 msg = "error: invalid grid"
-                return msg + grid[0]
+                return grid
         
         if accum in valid_nums:
             grid_parsed.append(accum)
