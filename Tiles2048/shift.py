@@ -43,7 +43,7 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     grid = userParms["grid"]
-    msg = _check_grid(grid)
+    (msg, grid) = _check_grid(grid)
     if "passed" not in msg:
         result["status"] = msg
         return result
@@ -99,7 +99,7 @@ def _check_grid(grid):
                 break
             
             if x == '1024':
-                msg = "error: invalid grid"
+                msg = "error: invalid grid", None
                 return msg
         
         if accum in VALID_NUMS:
@@ -109,11 +109,11 @@ def _check_grid(grid):
             temp = ''
     
     if count != 16:
-        return "error: invalid grid"
+        return "error: invalid grid", None
     
     if '0' not in grid_parsed:
-        return "error: no shift possible"
-    return "passed"
+        return "error: no shift possible", None
+    return "passed", grid_parsed
 
 
     
