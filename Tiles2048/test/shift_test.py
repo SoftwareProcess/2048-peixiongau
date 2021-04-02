@@ -5,7 +5,7 @@ Created on 2 Apr 2021
 '''
 import unittest
 from test.test__xxsubinterpreters import expect_channel_closed
-
+import Tiles2048.shift as shift
 
 class Test(unittest.TestCase):
 
