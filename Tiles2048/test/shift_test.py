@@ -10,13 +10,13 @@ import Tiles2048.shift as shift
 class Test(unittest.TestCase):
 
     def test010_001_Validating_parms(self):
-        parms = {"grid": "0000222244448888", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "0000222244448888", "score":'0', "direction":"abc", "integrity": "00000"}
         expected = {"status": "error: invalid direction"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
 
     def test010_002_validating_parms(self):
-        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "000022224444", "score":'0', "direction":"up", "integrity": "00000"}
         expected = {"status": "error: invalid grid"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
@@ -27,19 +27,19 @@ class Test(unittest.TestCase):
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
     def test010_004_validating_parms(self):
-        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "0000222244448888", "score":'0', "direction":"up", "integrity": "00000"}
         expected = {"status": "error: bad integrity value"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
     
     def test010_005_validating_parms(self):
-        parms = {"grid": "0000222244448888", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "0000222244448888", "score":'99', "direction":"abc", "integrity": "00000"}
         expected = {"status": "error: invalid score"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
         
     def test010_006_validating_parms(self):
-        parms = {"grid": "16161616222244448888", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "16161616222244448888", "score":'0', "direction":"abc", "integrity": "00000"}
         expected = {"status": "error: no shift possible"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
@@ -51,14 +51,20 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
     
     def test500_002_check_grid(self):
-        parms = {"grid": "2222222244448888", "score" : 0, "direction":"abcd", "integrity": "00000"}
+        parms = {"grid": "2222222244448888", "score" : '0', "direction":"abcd", "integrity": "00000"}
         expected = 'error: no shift possible'
         actual = shift._check_grid(parms['grid'])
         self.assertEqual(actual, expected)
     def test500_003_check_grid(self):
-        parms = {"grid": "2222222244448880", "score" : 0, "direction":"abcd", "integrity": "00000"}
+        parms = {"grid": "2222222244448880", "score" : '0', "direction":"abcd", "integrity": "00000"}
         expected = 'passed'
         actual = shift._check_grid(parms['grid'])
+        self.assertEqual(actual, expected)
+        
+    def test500_004_check_score(self):
+        parms = {"grid": "2222222244448880", "score" : '99', "direction":'down', "integrity": "00000"}
+        expected = 'error: invalid score'
+        actual = shift._check_score(parms['score'])
         self.assertEqual(actual, expected)
     
 if __name__ == "__main__":

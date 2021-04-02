@@ -1,8 +1,10 @@
+from curses.textpad import str
+import hashlib;
 
 
 
-
-valid_nums = ('0', '2', '4', '8', '16', '32', '64', '128', '256', '512', '1024')
+DIRECTION = ('up', 'down', 'left', 'right')
+VALID_NUMS = ('0', '2', '4', '8', '16', '32', '64', '128', '256', '512', '1024')
 grid_parsed = []
 
 
@@ -52,8 +54,8 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     
-    integrity = userParms["integrity"]
-    msg = _check_integrity(integrity)
+    #integrity = userParms["integrity"]
+    msg = _check_integrity(userParms)
     if "passed" not in msg:
         result["status"] = msg
         return result
@@ -85,7 +87,7 @@ def _check_grid(grid):
     count = 0
     for num in grid:
         temp = accum + num
-        for x in valid_nums:
+        for x in VALID_NUMS:
             if accum == '0':
                 break;
             
@@ -98,7 +100,7 @@ def _check_grid(grid):
                 msg = "error: invalid grid"
                 return msg
         
-        if accum in valid_nums:
+        if accum in VALID_NUMS:
             grid_parsed.append(accum)
             count += 1
             accum = ''
@@ -113,14 +115,29 @@ def _check_grid(grid):
 
 
     
-def _check_score(score):
-    return '0'
+def _check_score(score: str):
+    scr = int(score)
+    if scr % 2 == 0:
+        return "passed"
+    return "error: invalid score"
 
-def _check_integrity(integrity):
-    return '0'
+def _check_integrity(parms):
+    data = parms['grid'] + '.' + parms['score']
+    
+    hasher = hashlib.sha256()
+    
+    hasher.update(data.encode())
+
+    expected = hasher.hexdigest().upper()
+    
+    if parms['integrity'] == expected:
+        return "passed"
+    return "error: bad integrity"
 
 def _check_direction(direction):
-    return '0'
+    if direction in DIRECTION:
+        return 'passed'
+    return 'error: invalid direction'
         
         
     
