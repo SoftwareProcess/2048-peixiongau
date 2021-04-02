@@ -1,4 +1,4 @@
-from curses.textpad import str
+
 import hashlib;
 
 
