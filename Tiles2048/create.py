@@ -23,7 +23,7 @@ def _generateGrid():
         if left == 0:
             result += '0'
             continue
-        if random() < 0.3:
+        if random() < 0.6:
             result += '2'
             left -= 1
         else:
@@ -31,8 +31,11 @@ def _generateGrid():
     return result
 
 def _generateIntegrity(grid, score):
-    hasher = hashlib.sha256(bytes(grid, 'utf-8'))
-    hasher.update(b'.')
-    hasher.update(int2byte(score))
-    return hasher.hexdigest()
+    data = grid + '.' + str(score)
+    
+    hasher = hashlib.sha256()
+    
+    hasher.update(data.encode())
+
+    return hasher.hexdigest().upper()
             
