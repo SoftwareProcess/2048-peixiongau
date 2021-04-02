@@ -178,7 +178,7 @@ def _operate(direction):
     else:
         for i in range(3):
             for j in range(2):
-                if j > len(results[i])
+                if j > len(results[i]):
                     continue
                 grid[i][j] = results[i][j]
     
