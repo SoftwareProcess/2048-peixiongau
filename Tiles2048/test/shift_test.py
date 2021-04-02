@@ -15,6 +15,34 @@ class Test(unittest.TestCase):
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
 
+    def test010_001_validating_parms(self):
+        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        expected = {"status": "error: invalid grid"}
+        actual = shift._check_parms(parms)
+        self.assertEqual(actual, expected)
+    
+    def test010_001_validating_parms(self):
+        parms = {"score":0, "direction":"abc", "integrity": "00000"}
+        expected = {"status": "error: missing grid"}
+        actual = shift._check_parms(parms)
+        self.assertEqual(actual, expected)
+    def test010_001_validating_parms(self):
+        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        expected = {"status": "error: bad integrity value"}
+        actual = shift._check_parms(parms)
+        self.assertEqual(actual, expected)
+    
+    def test010_001_validating_parms(self):
+        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        expected = {"status": "error: invalid score"}
+        actual = shift._check_parms(parms)
+        self.assertEqual(actual, expected)
+        
+    def test010_001_validating_parms(self):
+        parms = {"grid": "16161616222244448888", "score":0, "direction":"abc", "integrity": "00000"}
+        expected = {"status": "error: no shift possible"}
+        actual = shift._check_parms(parms)
+        self.assertEqual(actual, expected)
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
