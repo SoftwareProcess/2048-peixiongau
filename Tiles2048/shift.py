@@ -187,6 +187,7 @@ def _operate(direction):
 
 def _parse_grid(direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
+    print(grid_parsed)
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
