@@ -172,7 +172,7 @@ def _operate(direction):
     if direction == 'right' or direction == 'down':
         for i in range(3):
             for j in range(2):
-                if j > len(results[i])
+                if j > len(results[i]):
                     continue
                 grid[i][3-j] = results[i][j]
     else:
