@@ -54,17 +54,19 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     
-    #integrity = userParms["integrity"]
-    msg = _check_integrity(userParms)
-    if "passed" not in msg:
-        result["status"] = msg
-        return result
     
     direction = userParms["direction"]
     msg = _check_direction(direction)
     if "passed" not in msg:
         result["status"] = msg
         return result
+    
+    #integrity = userParms["integrity"]
+    msg = _check_integrity(userParms)
+    if "passed" not in msg:
+        result["status"] = msg
+        return result
+    
     return result
 
 # Check if there are any missing parameters
@@ -132,7 +134,7 @@ def _check_integrity(parms):
     
     if parms['integrity'] == expected:
         return "passed"
-    return "error: bad integrity"
+    return "error: bad integrity value"
 
 def _check_direction(direction):
     if direction in DIRECTION:
