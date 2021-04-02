@@ -55,6 +55,11 @@ class Test(unittest.TestCase):
         expected = 'error: no shift possible'
         actual = shift._check_grid(parms['grid'])
         self.assertEqual(actual, expected)
+    def test500_003_check_grid(self):
+        parms = {"grid": "2222222244448880", "score" : 0, "direction":"abcd", "integrity": "00000"}
+        expected = 'passed'
+        actual = shift._check_grid(parms['grid'])
+        self.assertEqual(actual, expected)
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
