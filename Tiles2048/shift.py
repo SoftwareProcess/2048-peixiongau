@@ -93,7 +93,7 @@ def _check_grid(grid):
                 accum = temp
                 break
             
-            if x == '1024' and temp != 'grid':
+            if x == '1024' and num != 'grid':
                 msg = "error: invalid grid"
                 return msg 
         
