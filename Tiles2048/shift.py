@@ -107,13 +107,13 @@ def _check_grid(grid):
 
     
 def _check_score(score):
-    return 0
+    return '0'
 
 def _check_integrity(integrity):
-    return 0
+    return '0'
 
 def _check_direction(direction):
-    return 0
+    return '0'
         
         
     
