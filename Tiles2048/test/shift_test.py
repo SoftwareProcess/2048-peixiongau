@@ -70,7 +70,7 @@ class Test(unittest.TestCase):
         grid = '0022002200220022'
         dir = 'right'
         expected = "0004000400040004"
-        gridNew = shift._check_grid(grid)
+        gridNew = shift._check_grid(grid)[1]
         actual = shift._operate(gridNew, dir)
         self.assertEqual(actual, expected)   
     
