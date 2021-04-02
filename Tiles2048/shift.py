@@ -45,20 +45,21 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     
-    score = userParm["score"]
+    score = userParms["score"]
     msg = _check_score(score)
-    if "passed" not in msg
+    if "passed" not in msg:
         result["status"] = msg
         return result
     
-    integrity = userParm["integrity"]
+    integrity = userParms["integrity"]
     msg = _check_integrity(integrity)
-    if "passed" not in msg
+    if "passed" not in msg:
         result["status"] = msg
         return result
     
-    direction = userParm["direction"]
-    if "passed" not in msg
+    direction = userParms["direction"]
+    msg = _check_direction(direction)
+    if "passed" not in msg:
         result["status"] = msg
         return result
     return result
@@ -89,7 +90,7 @@ def _check_grid(grid):
                 accum = temp
                 continue
             
-            if x == '1024'
+            if x == '1024':
                 msg = "error: invalid grid"
                 return msg
         
@@ -105,8 +106,14 @@ def _check_grid(grid):
 
 
     
-        
-        
+def _check_score(score):
+    return 0
+
+def _check_integrity(integrity):
+    return 0
+
+def _check_direction(direction):
+    return 0
         
         
     
