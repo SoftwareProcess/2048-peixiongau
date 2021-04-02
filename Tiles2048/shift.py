@@ -153,21 +153,29 @@ def _operate(gridIn, direction):
     
     results = []
     # Calculation
-    for sequence in grid:
-        num = 0
+    for i in range(4):
+        prev = 0
         result = []
-        for x in sequence:
-            if x == 0:
+        for j in range(4):
+            if grid[i][j] == 0:
                 continue
             
-            if num == 0:
-                num = x
+            if prev == 0:
+                prev = grid[i][j]
                 continue
             
-            if num == x:
-                result.append(num * 2)
-                num = 0
-        
+            if prev == grid[i][j]:
+                grid[i][j] *= 2
+
+                x = j-1
+                while grid[i][x] != prev:
+                    x -= 1
+                grid[i][x] = 0
+                
+                prev = 0
+                continue
+            prev = grid[i][j]
+    '''    
         results.append(result)
     
     # Putting results back to grid
@@ -183,7 +191,7 @@ def _operate(gridIn, direction):
                 if j > len(results[i]):
                     continue
                 grid[i][j] = results[i][j]
-    
+    '''
     grid = _update_grid(grid, direction)
     result = ''
     for num in grid:
