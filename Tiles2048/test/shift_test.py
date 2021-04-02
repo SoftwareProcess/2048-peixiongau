@@ -33,7 +33,7 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
     
     def test010_005_validating_parms(self):
-        parms = {"grid": "000022224444", "score":0, "direction":"abc", "integrity": "00000"}
+        parms = {"grid": "0000222244448888", "score":0, "direction":"abc", "integrity": "00000"}
         expected = {"status": "error: invalid score"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
