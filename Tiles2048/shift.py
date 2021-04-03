@@ -232,7 +232,7 @@ def _parse_grid(gridIn, direction):
         j = 0
         for i in range(4):
             for j in range(4):
-                grid[j][i] = int(gridIn[i + j * 4])
+                grid[i][j] = int(gridIn[i + j * 4])
     else:
         for i in range(4):
             for j in range(4):
