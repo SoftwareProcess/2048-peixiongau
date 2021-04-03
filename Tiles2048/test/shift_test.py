@@ -89,7 +89,7 @@ class Test(unittest.TestCase):
         actual = shift._operate(gridNew, dir)
         self.assertEqual(actual, expected)   
     
-    def test500_007_operatings(self):
+    def test500_008_operatings(self):
         grid = '4000400000080008'
         dir = 'down'
         expected = "00000000000080016"
