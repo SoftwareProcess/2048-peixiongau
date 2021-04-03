@@ -51,7 +51,13 @@ class Test(unittest.TestCase):
         expected = 'ok'
         actual = shift._shift(parms)['status']
         self.assertEqual(actual, expected)    
-    
+
+    def test020_001_happy_path(self):
+        parms = {"grid": "2048000000000000000", "score":'0', "direction":"down", 
+                 "integrity": shift._gen_integrity('2048000000000000000', 0)}
+        expected = 'win'
+        actual = shift._shift(parms)['status']
+        self.assertEqual(actual, expected)        
     
     def test_500_001_check_missing(self):
         parms = {"grid": '000000'}
