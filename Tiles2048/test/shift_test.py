@@ -47,8 +47,8 @@ class Test(unittest.TestCase):
         
     def test020_001_happy_path(self):
         parms = {"grid": "002200440088161688", "score":'0', "direction":"down", 
-                 "integrity": '675E0CECD8BE05E63B50BAB79D808607EBAE51367A8F8DF7F28EA595A79F4232\n00000\
-\nCB7564DB2265528FC83764CB59ED88500EC33CCA41E4E6B91CEAB984EDC5F085'}
+                 "integrity": '675E0CECD8BE05E63B50BAB79D808607EBAE51367A8F8DF7F28EA595A79F4232\n\n00000\
+CB7564DB2265528FC83764CB59ED88500EC33CCA41E4E6B91CEAB984EDC5F085'}
         expected = 'ok'
         actual = shift._shift(parms)
         self.assertEqual(actual, expected)    
