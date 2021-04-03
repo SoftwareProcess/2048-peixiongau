@@ -278,6 +278,8 @@ def _gen_tiles(grid):
         if grid.count('0') == 0:
             return grid,score,'lose'
         for i in range(16):
+            if left == 0:
+                break
             if grid[i] == '0':
                 if random() < 0.6:
                     if random() < 0.7:
