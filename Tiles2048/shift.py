@@ -1,5 +1,6 @@
 
 import hashlib;
+from _ast import If
 
 
 
@@ -177,6 +178,17 @@ def _operate(gridIn, direction):
             prev = grid[i][j]
             
         
+        
+    if direction == 'right' or direction == 'down':
+        for i in range(4):
+            for j in range(4):
+                if j == 0:
+                    continue
+                if grid[i][j-1] == 0:
+                    continue
+                if grid[i][j] == 0:
+                    grid[i][j] = grid[i][j-1]
+                    grid[i][j-1] = 0
 
     grid = _update_grid(grid, direction)
     result = ''
@@ -217,15 +229,7 @@ def _update_grid(grid_calced, direction):
                 print("i", i, "j", j)
                 grid_original[i * 4 + j] = str(grid_calced[i][j])
     
-    for i in range(4):
-        for j in range(4):
-            if j == 0:
-                continue
-            if grid_original[i*4 + j-1] == 0:
-                continue
-            if grid_original[i*4 + j] == 0:
-                grid_original[i*4 + j] = grid_original[i*4 + j - 1]
-                grid_original[i*4 + j - 1] = 0
+    
                 
     if '2048' in grid_original:
         print("you win!")       #modiify later
