@@ -211,15 +211,16 @@ def _change_pos(grid, i, j, dirc):
         if grid[i][j] == 0:
             grid[i][j] = grid[i][j-1]
             grid[i][j-1] = 0
-            grid = _change_pos(grid, i, j-1, dir)
+            grid = _change_pos(grid, i, j-1, dirc)
+            return grid
     else:
         if j == 3 or grid[i][j+1] == 0:
             return grid
         if grid[i][j] == 0:
             grid[i][j] = grid[i][j+1]
             grid[i][j+1] = 0
-            grid = _change_pos(grid, i, j+1, dir)
-    return grid
+            grid = _change_pos(grid, i, j+1, dirc)
+            return grid
         
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
