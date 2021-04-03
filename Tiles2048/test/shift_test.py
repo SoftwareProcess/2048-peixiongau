@@ -48,7 +48,7 @@ class Test(unittest.TestCase):
     def test020_001_happy_path(self):
         parms = {"grid": "002200440088161688", "score":'0', "direction":"down", "integrity": "00000"}
         expected = 'ok'
-        actual = shift.shift(parms)
+        actual = shift._shift(parms)
         self.assertEqual(actual, expected)    
     
     
