@@ -26,7 +26,7 @@ def _shift(userParms):
     # Operate the data
     (grid, score, status) = _operate(grid_parsed, direction)
     # Generate one numbers after operation(and get the score)
-    score += old_score
+    score += int(old_score)
     
     result["grid"] = grid
     result["score"] = str(score)
