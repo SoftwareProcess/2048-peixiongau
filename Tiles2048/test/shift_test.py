@@ -95,7 +95,15 @@ class Test(unittest.TestCase):
         expected = "00000000000080016"
         gridNew = shift._check_grid(grid)[1]
         actual = shift._operate(gridNew, dir)
-        self.assertEqual(actual, expected)   
+        self.assertEqual(actual, expected) 
+        
+    def test500_009_operatings(self):
+        grid = '4000400000080008'
+        dir = 'up'
+        expected = "80016000000000000"
+        gridNew = shift._check_grid(grid)[1]
+        actual = shift._operate(gridNew, dir)
+        self.assertEqual(actual, expected)  
     
     
 if __name__ == "__main__":
