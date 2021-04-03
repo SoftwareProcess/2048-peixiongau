@@ -105,6 +105,12 @@ class Test(unittest.TestCase):
         actual = shift._operate(gridNew, dir)
         self.assertEqual(actual, expected)  
     
+    def test500_010_gentiles(self):
+        grid = ['2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2']
+        expected = 'lose'
+        actual = shift._gen_tiles(grid)[2]
+        self.assertEqual(expected, actual)
+    
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
