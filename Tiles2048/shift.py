@@ -1,4 +1,4 @@
-
+from random import random
 import hashlib;
 from _ast import If
 
@@ -24,15 +24,15 @@ def _shift(userParms):
     
     grid_parsed = _check_grid(grid)[1]
     # Operate the data
-    grid = _operate(grid_parsed, direction)
+    (grid, score, status) = _operate(grid_parsed, direction)
     # Generate one numbers after operation(and get the score)
-    score = _gen_tiles(grid)
+    #score = _gen_tiles(grid)
     
     result["grid"] = grid
     result["score"] = score
     result["integrity"] = _gen_integrity(grid, score)
     # Check if user has won or lost, and generate the status
-    result["status"] = _gen_status(grid, score)
+    result["status"] = status
     
     
     return result
@@ -199,10 +199,11 @@ def _operate(gridIn, direction):
                     grid = _change_pos(grid, i, j, direction)
 
     grid = _update_grid(grid, direction)
+    (grid, score, status) = _gen_tiles(grid)
     result = ''
     for num in grid:
         result += str(num)
-    return result
+    return result, score, status
 
 def _change_pos(grid, i, j, dirc):
     if dirc == 'right' or dirc == 'down':
@@ -264,7 +265,33 @@ def _update_grid(grid_calced, direction):
 
 
 def _gen_tiles(grid):
-    return 0
+    
+    score = 0
+    left = 2
+    for num in grid:
+        score += num
+    
+    if 2048 in grid:
+        return grid, score, 'win'
+    
+    while left > 0:
+        if grid.count(0) == 0:
+            return grid,'lose'
+        for i in range(16):
+            if grid[i] == 0:
+                if random() < 0.6:
+                    if random() < 0.7:
+                        grid[i] = 2
+                    else:
+                        grid[i] = 4
+                    left -= 1
+        
+            
+
+    
+
+    
+    return grid,score,'ok'
 
 def _gen_integrity(grid, score):
     return 0
