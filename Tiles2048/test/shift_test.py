@@ -43,6 +43,14 @@ class Test(unittest.TestCase):
         expected = {"status": "error: no shift possible"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
+        
+        
+    def test020_001_happy_path(self):
+        parms = {"grid": "002200440088161688", "score":'0', "direction":"down", "integrity": "00000"}
+        expected = 'ok'
+        actual = shift.shift(parms)
+        self.assertEqual(actual, expected)    
+    
     
     def test_500_001_check_missing(self):
         parms = {"grid": '000000'}
@@ -66,6 +74,8 @@ class Test(unittest.TestCase):
         expected = 'error: invalid score'
         actual = shift._check_score(parms['score'])
         self.assertEqual(actual, expected)
+        
+        
     '''
     def test500_005_operatings(self):
         grid = '0022002200220022'
@@ -117,6 +127,9 @@ class Test(unittest.TestCase):
         expected = 'win'
         actual = shift._gen_tiles(grid)[2]
         self.assertEqual(expected, actual)
+        
+        
+
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

@@ -20,16 +20,16 @@ def _shift(userParms):
     # The validation passed
     grid = userParms["grid"]
     direction = userParms["direction"]
-    score = userParms["score"]
+    old_score = userParms["score"]
     
     grid_parsed = _check_grid(grid)[1]
     # Operate the data
     (grid, score, status) = _operate(grid_parsed, direction)
     # Generate one numbers after operation(and get the score)
-    #score = _gen_tiles(grid)
+    score += old_score
     
     result["grid"] = grid
-    result["score"] = score
+    result["score"] = str(score)
     result["integrity"] = _gen_integrity(grid, score)
     # Check if user has won or lost, and generate the status
     result["status"] = status
@@ -287,16 +287,17 @@ def _gen_tiles(grid):
                     else:
                         grid[i] = '4'
                     left -= 1
-        
-            
-
-    
-
     
     return grid,score,'ok'
 
 def _gen_integrity(grid, score):
-    return 0
+    data = grid + '.' + str(score)
+    
+    hasher = hashlib.sha256()
+    
+    hasher.update(data.encode())
+
+    return hasher.hexdigest().upper()
 
 def _gen_status(grid, score):
     return 0
