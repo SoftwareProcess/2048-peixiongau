@@ -112,6 +112,11 @@ class Test(unittest.TestCase):
         actual = shift._gen_tiles(grid)[2]
         self.assertEqual(expected, actual)
     
+    def test500_011_gentiles(self):
+        grid = ['2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2048']
+        expected = 'win'
+        actual = shift._gen_tiles(grid)[2]
+        self.assertEqual(expected, actual)
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
