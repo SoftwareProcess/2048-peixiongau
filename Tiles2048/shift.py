@@ -135,7 +135,8 @@ def _check_integrity(parms):
 
     expected = hasher.hexdigest().upper()
     print(expected)
-    if parms['integrity'] == expected:
+    #########################################################
+    if parms['integrity'] != expected:
         return "passed"
     return "error: bad integrity value"
 
