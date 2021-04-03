@@ -219,11 +219,11 @@ def _update_grid(grid_calced, direction):
     
     for i in range(4):
         for j in range(4):
-            if grid_original[i*4 + j] == 0:
-                continue
             if j == 0:
                 continue
-            if grid_original[i*4 + j-1] != 0:
+            if grid_original[i*4 + j-1] == 0:
+                continue
+            if grid_original[i*4 + j] == 0:
                 grid_original[i*4 + j] = grid_original[i*4 + j - 1]
                 grid_original[i*4 + j - 1] = 0
                 
