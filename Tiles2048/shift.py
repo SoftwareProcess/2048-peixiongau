@@ -187,15 +187,15 @@ def _operate(gridIn, direction):
                 if grid[i][j-1] == 0:
                     continue
                 if grid[i][j] == 0:
-                    grid = _change_pos(grid, i, j, dirction)
+                    grid = _change_pos(grid, i, j, direction)
     else:
         for i in range(4):
             for j in range(3, -1, -1):
                 if j == 3:
                     continue
-                if grid[i][j+1] == 0
+                if grid[i][j+1] == 0:
                     continue
-                if grid[i][j] == 0
+                if grid[i][j] == 0:
                     grid = _change_pos(grid, i, j, direction)
 
     grid = _update_grid(grid, direction)
@@ -204,8 +204,8 @@ def _operate(gridIn, direction):
         result += str(num)
     return result
 
-def _change_pos(grid, i, j, dir):
-    if dir == 'right' or dir == 'down':
+def _change_pos(grid, i, j, dirc):
+    if dirc == 'right' or dirc == 'down':
         if grid[i][j-1] == 0:
             return grid
         if grid[i][j] == 0:
