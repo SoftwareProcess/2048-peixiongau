@@ -249,7 +249,7 @@ def _update_grid(grid_calced, direction):
         j = 0
         for i in range(4):
             for j in range(4):
-                grid_original[i + j * 4] = str(grid_calced[j][i])
+                grid_original[i + j * 4] = str(grid_calced[i][j])
     else:
         for i in range(4):
             for j in range(4):
