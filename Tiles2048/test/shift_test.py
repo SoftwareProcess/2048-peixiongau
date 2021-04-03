@@ -50,7 +50,7 @@ class Test(unittest.TestCase):
                  "integrity": '675E0CECD8BE05E63B50BAB79D808607EBAE51367A8F8DF7F28EA595A79F4232\
 CB7564DB2265528FC83764CB59ED88500EC33CCA41E4E6B91CEAB984EDC5F085'}
         expected = 'ok'
-        actual = shift._shift(parms)[3]
+        actual = shift._shift(parms)['status']
         self.assertEqual(actual, expected)    
     
     
