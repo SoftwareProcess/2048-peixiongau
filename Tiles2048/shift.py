@@ -225,7 +225,7 @@ def _change_pos(grid, i, j, dirc):
         
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
-    print(gridIn)
+    print(gridIn, ' in parse_grid()')
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
@@ -242,7 +242,7 @@ def _parse_grid(gridIn, direction):
 
 def _update_grid(grid_calced, direction):
     grid_original= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    print(grid_calced)
+    print(grid_calced, ' in update_grid()')
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
