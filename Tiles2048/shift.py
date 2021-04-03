@@ -219,6 +219,7 @@ def _change_pos(grid, i, j, dirc):
             grid[i][j] = grid[i][j+1]
             grid[i][j+1] = 0
             grid = _change_pos(grid, i, j+1, dir)
+    return grid
         
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
