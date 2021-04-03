@@ -178,7 +178,7 @@ def _operate(gridIn, direction):
             prev = grid[i][j]
             
         
-        
+    print(grid)
     if direction == 'right' or direction == 'down':
         for i in range(4):
             for j in range(4):
@@ -189,6 +189,8 @@ def _operate(gridIn, direction):
                 if grid[i][j] == 0:
                     grid[i][j] = grid[i][j-1]
                     grid[i][j-1] = 0
+    else:
+        pass
 
     grid = _update_grid(grid, direction)
     result = ''
