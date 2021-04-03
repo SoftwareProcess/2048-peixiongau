@@ -187,10 +187,16 @@ def _operate(gridIn, direction):
                 if grid[i][j-1] == 0:
                     continue
                 if grid[i][j] == 0:
-                    grid[i][j] = grid[i][j-1]
-                    grid[i][j-1] = 0
+                    grid = _change_pos(grid, i, j, dirction)
     else:
-        pass
+        for i in range(4):
+            for j in range(3, -1, -1):
+                if j == 3:
+                    continue
+                if grid[i][j+1] == 0
+                    continue
+                if grid[i][j] == 0
+                    grid = _change_pos(grid, i, j, direction)
 
     grid = _update_grid(grid, direction)
     result = ''
@@ -198,6 +204,22 @@ def _operate(gridIn, direction):
         result += str(num)
     return result
 
+def _change_pos(grid, i, j, dir):
+    if dir == 'right' or dir == 'down':
+        if grid[i][j-1] == 0:
+            return grid
+        if grid[i][j] == 0:
+            grid[i][j] = grid[i][j-1]
+            grid[i][j-1] = 0
+            grid = _change_pos(grid, i, j-1, dir)
+    else:
+        if grid[i][j+1] == 0:
+            return grid
+        if grid[i][j] == 0:
+            grid[i][j] = grid[i][j+1]
+            grid[i][j+1] = 0
+            grid = _change_pos(grid, i, j+1, dir)
+        
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
     print(gridIn)
