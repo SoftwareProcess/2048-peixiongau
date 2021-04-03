@@ -177,23 +177,6 @@ def _operate(gridIn, direction):
             prev = grid[i][j]
             
         
-    x = 0
-    y = 0
-    prev = 0
-    for j in range(4):
-        prev = grid[i][0]
-        x = i
-        y = 0
-        for i in range(4):
-            if grid[i][j] == 0:
-                if prev == 0:
-                    continue
-                else:
-                    grid[i][j] = grid[x][y]
-                    grid[x][y] = 0
-                x = i
-                y = j
-                prev = grid[i][j]
 
     grid = _update_grid(grid, direction)
     result = ''
@@ -234,6 +217,16 @@ def _update_grid(grid_calced, direction):
                 print("i", i, "j", j)
                 grid_original[i * 4 + j] = str(grid_calced[i][j])
     
+    for i in range(4):
+        for j in range(4):
+            if grid_original[i*4 + j] == 0:
+                continue
+            if j == 0:
+                continue
+            if grid_original[i*4 + j-1] != 0:
+                grid_original[i*4 + j] = grid_original[i*4 + j - 1]
+                grid_original[i*4 + j - 1] = 0
+                
     if '2048' in grid_original:
         print("you win!")       #modiify later
     return grid_original
