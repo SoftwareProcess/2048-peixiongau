@@ -84,7 +84,7 @@ class Test(unittest.TestCase):
     def test500_006_operatings(self):
         grid = '204420442088821616'
         dir = 'left'
-        expected = '28002800216008232'
+        expected = '280028002160082320'
         gridNew = shift._check_grid(grid)[1]
         actual = shift._operate(gridNew, dir)
         self.assertEqual(actual, expected)   
