@@ -151,11 +151,9 @@ def _check_direction(direction):
 def _operate(gridIn, direction):
     grid = _parse_grid(gridIn, direction)
     
-    results = []
     # Calculation
     for i in range(4):
         prev = 0
-        result = []
         for j in range(4):
             if grid[i][j] == 0:
                 continue
@@ -174,8 +172,26 @@ def _operate(gridIn, direction):
                 
                 prev = 0
                 continue
+            
+            
             prev = grid[i][j]
-    '''    
+            
+        
+        x = 0
+        y = 0
+        prev = 0
+        for j in range(4):
+            for i in range(4):
+                if grid[i][j] == 0:
+                    if prev == 0:
+                        continue
+                    else:
+                        grid[i][j] = grid[x][y]
+                        grid[x][y] = 0
+                    x = i
+                    y = j
+                    prev = grid[i][j]
+'''    
         results.append(result)
     
     # Putting results back to grid
