@@ -177,37 +177,21 @@ def _operate(gridIn, direction):
             prev = grid[i][j]
             
         
-        x = 0
-        y = 0
-        prev = 0
-        for j in range(4):
-            for i in range(4):
-                if grid[i][j] == 0:
-                    if prev == 0:
-                        continue
-                    else:
-                        grid[i][j] = grid[x][y]
-                        grid[x][y] = 0
-                    x = i
-                    y = j
-                    prev = grid[i][j]
-'''    
-        results.append(result)
-    
-    # Putting results back to grid
-    if direction == 'right' or direction == 'down':
-        for i in range(3):
-            for j in range(2):
-                if j >= len(results[i]):
+    x = 0
+    y = 0
+    prev = 0
+    for j in range(4):
+        for i in range(4):
+            if grid[i][j] == 0:
+                if prev == 0:
                     continue
-                grid[i][3-j] = results[i][j]
-    else:
-        for i in range(3):
-            for j in range(2):
-                if j > len(results[i]):
-                    continue
-                grid[i][j] = results[i][j]
-    '''
+                else:
+                    grid[i][j] = grid[x][y]
+                    grid[x][y] = 0
+                x = i
+                y = j
+                prev = grid[i][j]
+
     grid = _update_grid(grid, direction)
     result = ''
     for num in grid:
