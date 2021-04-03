@@ -32,6 +32,10 @@ def _generateGrid():
 
 def _generateIntegrity(grid, score):
     data = grid + '.' + str(score)
+    
     hasher = hashlib.sha256()
+    
     hasher.update(data.encode())
+
     return hasher.hexdigest().upper()
+            
