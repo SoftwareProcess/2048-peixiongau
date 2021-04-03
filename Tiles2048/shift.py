@@ -269,21 +269,21 @@ def _gen_tiles(grid):
     score = 0
     left = 2
     for num in grid:
-        score += num
+        score += int(num)
     
-    if 2048 in grid:
+    if '2048' in grid:
         return grid, score, 'win'
     
     while left > 0:
-        if grid.count(0) == 0:
-            return grid,'lose'
+        if grid.count('0') == 0:
+            return grid,score,'lose'
         for i in range(16):
-            if grid[i] == 0:
+            if grid[i] == '0':
                 if random() < 0.6:
                     if random() < 0.7:
-                        grid[i] = 2
+                        grid[i] = '2'
                     else:
-                        grid[i] = 4
+                        grid[i] = '4'
                     left -= 1
         
             
