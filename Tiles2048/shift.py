@@ -181,6 +181,9 @@ def _operate(gridIn, direction):
     y = 0
     prev = 0
     for j in range(4):
+        prev = grid[i][0]
+        x = i
+        y = 0
         for i in range(4):
             if grid[i][j] == 0:
                 if prev == 0:
