@@ -1,6 +1,6 @@
 from random import random
 import hashlib;
-from _ast import If
+
 
 
 
@@ -11,7 +11,6 @@ global grid_parsed
 
 # Finish the shift operation
 def _shift(userParms):
-    result = {'shift': 'shift stub'}
     # Check if we got valid parameters
     result = _check_parms(userParms)
     if "status" in result:   
@@ -46,7 +45,7 @@ def _check_parms(userParms):
         result["status"] = msg
         return result
     grid = userParms["grid"]
-    (msg, x) = _check_grid(grid)
+    msg = _check_grid(grid)[0]
     if "passed" not in msg:
         result["status"] = msg
         return result
@@ -134,8 +133,7 @@ def _check_integrity(parms):
     hasher.update(data.encode())
 
     expected = hasher.hexdigest().upper()
-    print(expected)
-    #########################################################
+    #print(expected)
     if parms['integrity'] == expected:
         return "passed"
     return "error: bad integrity value"
@@ -227,7 +225,7 @@ def _change_pos(grid, i, j, dirc):
         
 def _parse_grid(gridIn, direction):
     grid = [['0','0','0','0'],['0','0','0','0'],['0','0','0','0'],['0','0','0','0']]
-    print(gridIn, ' in parse_grid()')
+    #print(gridIn, ' in parse_grid()')
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
@@ -244,7 +242,7 @@ def _parse_grid(gridIn, direction):
 
 def _update_grid(grid_calced, direction):
     grid_original= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    print(grid_calced, ' in update_grid()')
+    #print(grid_calced, ' in update_grid()')
     if direction == 'up' or direction == 'down':
         # rows and columns
         i = 0
@@ -261,10 +259,10 @@ def _update_grid(grid_calced, direction):
     
                 
     if '2048' in grid_original:
-        print("you win!")       #modiify later
+        print("you win!")       
     return grid_original
 
-
+# Calculate score and Generate tiles
 def _gen_tiles(grid):
     
     score = 0
@@ -299,6 +297,3 @@ def _gen_integrity(grid, score):
     hasher.update(data.encode())
 
     return hasher.hexdigest().upper()
-
-def _gen_status(grid, score):
-    return 0
