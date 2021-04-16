@@ -23,7 +23,7 @@ def _generateGrid():
         if left == 0:
             result += '0'
             continue
-        if random() < 0.2 + i * 0.05:
+        if random() < 0.15 + i * 0.01:
             result += '2'
             left -= 1
         else:
