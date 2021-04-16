@@ -74,11 +74,11 @@ def _check_parms(userParms):
 # Check if there are any missing parameters
 def _check_missing(userParms):
     if "grid" not in userParms:
-        userParms['grid'] = 'down'
-        #return "error: missing grid"
+        return "error: missing grid"
     if "score" not in userParms:
         return "error: missing score";
     if "direction" not in userParms:
+        uerParms['direction'] = 'down'
         return "error: missing direction";
     if "integrity" not in userParms:
         return "error: missing integrity";
