@@ -74,7 +74,8 @@ def _check_parms(userParms):
 # Check if there are any missing parameters
 def _check_missing(userParms):
     if "grid" not in userParms:
-        return "error: missing grid"
+        userParms['grid'] = 'down'
+        #return "error: missing grid"
     if "score" not in userParms:
         return "error: missing score";
     if "direction" not in userParms:
@@ -120,7 +121,12 @@ def _check_grid(grid):
 
     
 def _check_score(score: str):
-    scr = int(score)
+    try:
+        scr = int(score)
+    except:
+        return 'error: invalid score'
+    if scr < 0:
+        return 'error: invalid score'
     if scr % 2 == 0:
         return "passed"
     return "error: invalid score"
@@ -139,7 +145,7 @@ def _check_integrity(parms):
     return "error: bad integrity value"
 
 def _check_direction(direction):
-    if direction in DIRECTION:
+    if direction.lower() in DIRECTION:
         return 'passed'
     return 'error: invalid direction'
         
@@ -150,7 +156,7 @@ def _check_direction(direction):
 # make the operation and return the new grid
 def _operate(gridIn, direction):
     grid = _parse_grid(gridIn, direction)
-    
+    score = 0
     # Calculation
     for i in range(4):
         prev = 0
@@ -170,7 +176,9 @@ def _operate(gridIn, direction):
                     x -= 1
                 grid[i][x] = 0
                 
+                score += prev * 2
                 prev = 0
+                
                 continue
             
             
@@ -198,7 +206,7 @@ def _operate(gridIn, direction):
                     grid = _change_pos(grid, i, j, direction)
 
     grid = _update_grid(grid, direction)
-    (grid, score, status) = _gen_tiles(grid)
+    (grid, status) = _gen_tiles(grid)
     result = ''
     for num in grid:
         result += str(num)
@@ -265,29 +273,29 @@ def _update_grid(grid_calced, direction):
 # Calculate score and Generate tiles
 def _gen_tiles(grid):
     
-    score = 0
+    #score = 0
     left = 2
-    for num in grid:
-        score += int(num)
+    #for num in grid:
+    #    score += int(num)
     
     if '2048' in grid:
-        return grid, score, 'win'
+        return grid, 'win'
     
     while left > 0:
         if grid.count('0') == 0:
-            return grid,score,'lose'
+            return grid,'lose'
         for i in range(16):
             if left == 0:
                 break
             if grid[i] == '0':
                 if random() < 0.6:
-                    if random() < 0.7:
+                    if random() < 0.4:
                         grid[i] = '2'
                     else:
                         grid[i] = '4'
                     left -= 1
     
-    return grid,score,'ok'
+    return grid,'ok'
 
 def _gen_integrity(grid, score):
     data = grid + '.' + str(score)
