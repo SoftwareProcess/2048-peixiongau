@@ -58,6 +58,8 @@ def _check_parms(userParms):
     
     
     direction = userParms["direction"]
+    if direction == '':
+        userParms['direction'] = 'down'
     msg = _check_direction(direction)
     if "passed" not in msg:
         result["status"] = msg
@@ -79,7 +81,7 @@ def _check_missing(userParms):
         return "error: missing score";
     if "direction" not in userParms:
         userParms['direction'] = 'down'
-        return "error: missing direction";
+        #return "error: missing direction";
     if "integrity" not in userParms:
         return "error: missing integrity";
     
