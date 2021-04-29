@@ -46,7 +46,7 @@ class Test(unittest.TestCase):
         
         
     def test020_001_happy_path(self):
-        parms = {"grid": "002200440088161688", "score":'0', #"direction":"", 
+        parms = {"grid": "002200440088161688", "score":'0', "direction":"down", 
                  "integrity": shift._gen_integrity('002200440088161688', 0)}
         expected = 'ok'
         actual = shift._shift(parms)['status']
