@@ -11,6 +11,12 @@ global grid_parsed
 
 # Finish the shift operation
 def _shift(userParms):
+    
+    if 'direction' not in userParms:
+        userParms['direction'] = 'down'
+    if userParms['direction'] == '':
+        userParms['direction'] = 'down'
+    
     # Check if we got valid parameters
     result = _check_parms(userParms)
     if "status" in result:   
@@ -58,8 +64,6 @@ def _check_parms(userParms):
     
     
     direction = userParms["direction"]
-    if direction == '':
-        userParms['direction'] = 'down'
     msg = _check_direction(direction)
     if "passed" not in msg:
         result["status"] = msg
