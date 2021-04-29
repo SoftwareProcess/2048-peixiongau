@@ -94,7 +94,7 @@ def _check_missing(userParms):
     
 def _check_grid(grid):
     grid_parsed = [];
-    gridA = grid.append('#')
+    gridA = grid +'#'
     #pos = 0
     #accum = '';
     temp = ''
