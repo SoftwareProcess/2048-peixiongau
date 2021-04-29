@@ -114,9 +114,10 @@ def _check_grid(grid):
     if count != 16:
         return "error: invalid grid", None
     
-    # Modification needed
+    ''' Modification needed '''
     if '0' not in grid_parsed:
-        return "error: no shift possible", None
+        if _check_lose(grid_parsed) == 'lose': 
+            return "error: no shift possible", None
     return "passed", grid_parsed
 
 
@@ -275,7 +276,7 @@ def _update_grid(grid_calced, direction):
 def _gen_tiles(grid):
     
     #score = 0
-    left = 2
+    left = 1
     #for num in grid:
     #    score += int(num)
     
@@ -284,18 +285,21 @@ def _gen_tiles(grid):
     
     while left > 0:
         if grid.count('0') == 0:
+            ''' Modification may be needed'''
             return grid,'lose'
         for i in range(16):
             if left == 0:
                 break
             if grid[i] == '0':
                 if random() < 0.6:
-                    if random() < 0.4:
+                    if random() < 0.3:
                         grid[i] = '2'
                     else:
                         grid[i] = '4'
                     left -= 1
-    
+    ''' modification may be needed '''
+    if grid.count('0') == 0:
+        return _check_lose(grid)
     return grid,'ok'
 
 def _gen_integrity(grid, score):
@@ -307,6 +311,36 @@ def _gen_integrity(grid, score):
 
     return hasher.hexdigest().upper()
 
-
-def _check_win(gridIn:list) -> str:
-    return 0
+# @param gridIn a full grid
+def _check_lose(gridIn:list) -> str:
+    num : str
+    #dis : int
+    for i in range(16):
+        num = gridIn[i]
+        #if num == '0':
+        #    continue
+        for x in _get_adj(i):
+            #if gridIn[x] == '0':
+            #    dis = i - x
+            #    x = x - dis
+            if gridIn[x] == num:
+                return 'ok';
+            ''''''
+        ''''''
+    ''' No solution found'''
+    return 'lose'
+''' get adjacent coordinates'''
+def _get_adj(pos)-> tuple:
+    adjs = []
+    #check if it's at the upper bound
+    if pos > 3:
+        adjs.append(pos - 4)
+    if pos < 12:
+        adjs.append(pos + 4)
+    if pos % 4 != 0:
+        adjs.append(pos - 1)
+    if pos % 4 != 3:
+        adjs.append(pos + 1)
+        
+    
+    return tuple(adjs),
