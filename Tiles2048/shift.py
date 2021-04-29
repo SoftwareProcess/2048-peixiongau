@@ -283,6 +283,7 @@ def _gen_tiles(grid):
     
     #score = 0
     left = 1
+    odds = 0.2
     #for num in grid:
     #    score += int(num)
     
@@ -297,8 +298,8 @@ def _gen_tiles(grid):
             if left == 0:
                 break
             if grid[i] == '0':
-                if random() < 0.6:
-                    if random() < 0.3:
+                if random() < odds:
+                    if random() < 0.1:
                         grid[i] = '2'
                     else:
                         grid[i] = '4'
