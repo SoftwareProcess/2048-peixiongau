@@ -109,7 +109,7 @@ def _check_grid(grid):
             
             if x == '1024':
                 if accum == '56' and grid_parsed[-1] == '2':
-                    #grid_parsed[-1] += '56';
+                    grid_parsed[-1] += '56';
                     #accum = temp
                     #break
                 else:
