@@ -345,4 +345,4 @@ def _get_adj(pos)-> tuple:
         adjs.append(pos + 1)
         
     
-    return tuple(adjs),
+    return tuple(adjs)
