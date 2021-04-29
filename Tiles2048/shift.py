@@ -321,7 +321,7 @@ def _check_lose(gridIn:list) -> str:
         coords = _get_adj(i)
         #if num == '0':
         #    continue
-        for x in coords(i):
+        for x in coords:
             #if gridIn[x] == '0':
             #    dis = i - x
             #    x = x - dis
