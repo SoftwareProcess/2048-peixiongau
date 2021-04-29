@@ -108,8 +108,11 @@ def _check_grid(grid):
                 break
             
             if x == '1024':
-                msg = "error: invalid grid"+accum, None
-                return msg
+                if accum == '56' and grid_parsed[-1] == '2':
+                    grid_parsed[-1] += '56';
+                else:
+                    msg = "error: invalid grid", None
+                    return msg
         
         if accum in VALID_NUMS:
             grid_parsed.append(accum)
