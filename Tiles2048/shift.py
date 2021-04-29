@@ -95,23 +95,20 @@ def _check_missing(userParms):
 def _check_grid(grid):
     grid_parsed = [];
     gridA = grid +'#'
-    #pos = 0
-    #accum = '';
+
     temp = ''
-    #buffer:str  '''A buffer for part of a number to parse'''
     count = 0
     for i in range(len(gridA)):
         temp += gridA[i]
         
         for x in VALID_NUMS:
             if x.startswith(temp):
-                #pos = i
                 break
             # Not possible to be in valids with one more char
             if x == '1024':
                 temp = temp[:-1];
                 if temp == '':
-                    return "error: invalid grid" + temp + gridA[i], None
+                    return "error: invalid grid", None
                 else:
                     grid_parsed.append(temp)
                     count += 1
@@ -120,7 +117,7 @@ def _check_grid(grid):
         
     
     if count != 16:
-        return "error: invalid grid" + str(count), None
+        return "error: invalid grid", None
     
     ''' Modification needed '''
     if '0' not in grid_parsed:
