@@ -299,7 +299,7 @@ def _gen_tiles(grid):
                     left -= 1
     ''' modification may be needed '''
     if grid.count('0') == 0:
-        return _check_lose(grid)
+        return grid, _check_lose(grid)
     return grid,'ok'
 
 def _gen_integrity(grid, score):
