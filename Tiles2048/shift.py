@@ -325,7 +325,7 @@ def _check_lose(gridIn:list) -> str:
             #if gridIn[x] == '0':
             #    dis = i - x
             #    x = x - dis
-            if gridIn[x] == num:
+            if num == gridIn[x]:
                 return 'ok'
             ''''''
         ''''''
