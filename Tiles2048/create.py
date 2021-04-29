@@ -17,19 +17,19 @@ def _create(userParms):
 
 
 def _generateGrid():
-    odds = 0.01
+    odds = 0.15
     left = 2
     result = ''
     for i in range(16):
         if left == 0:
             result += '0'
             continue
-        if random() < 0.15 + i * odds:
+        if random() < odds: # + i * odds:
             result += '2'
             left -= 1
         else:
-            if i >= 11:
-                odds = 0.2
+            if i >= 13:
+                odds = 2
             result += '0'
     return result
 
