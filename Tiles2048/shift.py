@@ -110,7 +110,7 @@ def _check_grid(grid):
             if x == '1024':
                 temp = temp[:-1];
                 if temp == '':
-                    return "error: invalid grid" + temp, None
+                    return "error: invalid grid" + temp + grid[i], None
                 else:
                     grid_parsed.append(temp)
                     count += 1
