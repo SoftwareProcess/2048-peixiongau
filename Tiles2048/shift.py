@@ -314,25 +314,24 @@ def _gen_integrity(grid, score):
 # @param gridIn a full grid
 def _check_lose(gridIn:list) -> str:
     num : str
-    coords : list
     #dis : int
     for i in range(16):
         num = gridIn[i]
-        coords = _get_adj(i)
         #if num == '0':
         #    continue
-        for x in coords:
+        for x in _get_adj(i):
+            print(x)
             #if gridIn[x] == '0':
             #    dis = i - x
             #    x = x - dis
-            if num == (gridIn[x]):
-                return 'ok'
+            if gridIn[x] == num:
+                return 'ok';
             ''''''
         ''''''
     ''' No solution found'''
     return 'lose'
 ''' get adjacent coordinates'''
-def _get_adj(pos:int)-> list:
+def _get_adj(pos)-> list:
     adjs = []
     #check if it's at the upper bound
     if pos > 3:
