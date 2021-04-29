@@ -108,7 +108,7 @@ def _check_grid(grid):
                 break
             
             if x == '1024':
-                msg = "error: invalid grid", None
+                msg = "error: invalid grid"+accum, None
                 return msg
         
         if accum in VALID_NUMS:
