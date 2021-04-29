@@ -319,7 +319,7 @@ def _check_lose(gridIn:list) -> str:
         num = gridIn[i]
         #if num == '0':
         #    continue
-        for x in _get_adj(i):
+        for x in list(_get_adj(i)):
             #if gridIn[x] == '0':
             #    dis = i - x
             #    x = x - dis
