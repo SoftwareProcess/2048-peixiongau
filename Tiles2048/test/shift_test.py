@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
         
     def test010_006_validating_parms(self):
         parms = {"grid": "16161616222244448888", "score":'0', "direction":"abc", "integrity": "00000"}
-        expected = {"status": "error: no shift possible"}
+        expected = {"status": "error: invalid direction"}
         actual = shift._check_parms(parms)
         self.assertEqual(actual, expected)
         
