@@ -72,8 +72,8 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
     
     def test500_002_check_grid(self):
-        parms = {"grid": "2222222244448888", "score" : '0', "direction":"abcd", "integrity": "00000"}
-        expected = 'error: no shift possible'
+        parms = {"grid": "2222222244448888", "score" : '0', "direction":"left", "integrity": "00000"}
+        expected = 'ok'
         actual = shift._check_grid(parms['grid'])[0]
         self.assertEqual(actual, expected)
     def test500_003_check_grid(self):
