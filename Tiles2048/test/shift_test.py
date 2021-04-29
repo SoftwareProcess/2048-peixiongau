@@ -131,7 +131,7 @@ class Test(unittest.TestCase):
     '''
     def test500_010_gentiles(self):
         grid = ['2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2','2', '2']
-        expected = 'lose'
+        expected = 'ok'
         actual = shift._gen_tiles(grid)[1]
         self.assertEqual(expected, actual)
     
@@ -141,6 +141,11 @@ class Test(unittest.TestCase):
         actual = shift._gen_tiles(grid)[1]
         self.assertEqual(expected, actual)
         
+    def test500_012_check_win(self):
+        grid = ['2', '4','2', '4','4', '2','4', '2','2', '4','2', '4','4', '2','4', '2']
+        expected = 'lose'
+        actual = shift._check_win(grid)
+        self.assertEqual(actual, expected)
         
 
     

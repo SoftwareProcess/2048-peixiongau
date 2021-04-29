@@ -114,6 +114,7 @@ def _check_grid(grid):
     if count != 16:
         return "error: invalid grid", None
     
+    # Modification needed
     if '0' not in grid_parsed:
         return "error: no shift possible", None
     return "passed", grid_parsed
@@ -305,3 +306,7 @@ def _gen_integrity(grid, score):
     hasher.update(data.encode())
 
     return hasher.hexdigest().upper()
+
+
+def _check_win(gridIn:list) -> str:
+    return 0
