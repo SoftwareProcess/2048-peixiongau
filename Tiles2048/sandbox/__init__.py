@@ -7,6 +7,7 @@ hasher = hashlib.sha256(b'test')
 
 test = '2'
 test += '56'
+test = test[:-1]
 print(test)
 
 

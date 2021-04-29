@@ -1,5 +1,6 @@
 from random import random
 import hashlib;
+from pickle import NONE
 
 
 
@@ -93,35 +94,29 @@ def _check_missing(userParms):
     
 def _check_grid(grid):
     grid_parsed = [];
-    accum = '';
+    #pos = 0
+    #accum = '';
     temp = ''
+    #buffer:str  '''A buffer for part of a number to parse'''
     count = 0
-    for num in grid:
-        temp = accum + num
-        for x in VALID_NUMS:
-            if accum == '0':
-                break;
-            
-            
-            if temp in x:
-                accum = temp
-                break
-            
-            if x == '1024':
-                if accum == '56' and grid_parsed[-1] == '2':
-                    grid_parsed[-1] += '56';
-                    accum = ''
-                    temp = ''
-                    break
-                else:
-                    msg = "error: invalid grid" + accum, None
-                    return msg
+    for i in range(len(grid)):
+        temp += grid[i]
         
-        if accum in VALID_NUMS:
-            grid_parsed.append(accum)
-            count += 1
-            accum = ''
-            temp = ''
+        for x in VALID_NUMS:
+            if x.startswith(temp):
+                #pos = i
+                break
+            # Not possible to be in valids with one more char
+            if x == '1024':
+                temp = temp[:-1];
+                if temp == '':
+                    return "error: invalid grid", None
+                else:
+                    grid_parsed.append(temp)
+                    count += 1
+                    temp = grid[i]
+            
+        
     
     if count != 16:
         return "error: invalid grid", None
