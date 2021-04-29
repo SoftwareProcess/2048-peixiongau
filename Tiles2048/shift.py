@@ -331,7 +331,7 @@ def _check_lose(gridIn:list) -> str:
     ''' No solution found'''
     return 'lose'
 ''' get adjacent coordinates'''
-def _get_adj(pos)-> list:
+def _get_adj(pos)-> tuple:
     adjs = []
     #check if it's at the upper bound
     if pos > 3:
@@ -344,4 +344,4 @@ def _get_adj(pos)-> list:
         adjs.append(pos + 1)
         
     
-    return adjs,
+    return tuple(adjs),
