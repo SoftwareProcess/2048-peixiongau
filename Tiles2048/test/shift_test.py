@@ -71,7 +71,7 @@ class Test(unittest.TestCase):
                  "integrity": shift._gen_integrity('2481632641282565121024220000', 0)}
         expected = '248163264128256512102440000'
         
-        actual = shift._shift(parms)['status'']
+        actual = shift._shift(parms)['status']
         self.assertEqual(actual, expected)  
     def test_500_001_check_missing(self):
         parms = {"grid": '000000'}
