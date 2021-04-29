@@ -78,7 +78,7 @@ def _check_missing(userParms):
     if "score" not in userParms:
         return "error: missing score";
     if "direction" not in userParms:
-        uerParms['direction'] = 'down'
+        userParms['direction'] = 'down'
         return "error: missing direction";
     if "integrity" not in userParms:
         return "error: missing integrity";
