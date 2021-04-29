@@ -119,7 +119,7 @@ def _check_grid(grid):
         
     
     if count != 16:
-        return "error: invalid grid", None
+        return "error: invalid grid" + count, None
     
     ''' Modification needed '''
     if '0' not in grid_parsed:
